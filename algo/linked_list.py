@@ -3,17 +3,29 @@ class Node:
         self.value = value
         self.next = None
 
-class Solution:
+class LinkedList:
     def __init__(self):
         self.head = None
+        def populate():
+            self.addNode(23)
+            self.addNode(61)
+            self.addNode(9)
+            self.addNode(45)
+            self.addNode(14)
+            self.addNode(90)
+            self.addNode(31)
+            self.addNode(82)
+        populate()
+        print('Initialized Linked List:')
+        self.printValues()
 
-    def getValues(self):
+    def printValues(self):
         res = ''
         curr = self.head
         while curr != None:
             res += str(curr.value) + '->'
             curr = curr.next
-        return res + 'Null'
+        print(res + 'None')
 
     def addNode(self, value):
         newNode = Node(value)
@@ -53,28 +65,3 @@ class Solution:
         curr.next = None
         return
 
-    def checkIfLoop(self):
-        s = self.head
-        f = self.head.next
-        while f and f.next.next:
-            if s == f:
-                return True
-            s = s.next
-            f = f.next.next
-        return False
-
-s = Solution()
-s.addNode(1)
-s.addNode(2)
-s.addNode(3)
-s.addNode(5)
-s.addNode(8)
-s.addNodeAt(4, 3)
-s.addNodeAt(0, 0)
-s.addNodeAt(7, 6)
-s.addNodeAt(6, 6)
-s.addNodeAt(9, 20)
-s.addNodeAt(9, 20)
-s.popNode()
-print(s.getValues())
-print(s.checkIfLoop())

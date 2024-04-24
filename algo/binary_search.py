@@ -4,6 +4,18 @@ class Solution:
         self.values = [1, 3, 4, 8, 10, 18, 23, 40]
 
     def bs(self, target):
+        l = 0
+        r = len(self.values)
+        while l <= r:
+            m = (l + r) // 2
+            x = self.values[m]
+            if x < target:
+                l = m + 1
+            elif x > target:
+                r = m - 1
+            else:
+                return m
+        return -1
 
 s = Solution('binary search')
 
